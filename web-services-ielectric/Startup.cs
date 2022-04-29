@@ -47,7 +47,7 @@ namespace web_services_ielectric
             //Database
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseMySql(Configuration.GetConnectionString("AzureDbConnection"), new MySqlServerVersion(new Version(8, 0, 26)));
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection"), new MySqlServerVersion(new Version(8, 0, 26)));
             });
 
             //Repositories
@@ -96,7 +96,7 @@ namespace web_services_ielectric
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "web_services_WhiteRepair", Version = "v1" });
+                c.SwaggerDoc("v2", new OpenApiInfo { Title = "web_services_ielectric", Version = "v2" });
                 c.EnableAnnotations();
             });
         }
@@ -106,7 +106,7 @@ namespace web_services_ielectric
         {
             app.UseDeveloperExceptionPage();
             app.UseSwagger(c => c.SerializeAsV2 = true);
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "web_services_WhiteRepair v1"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v2/swagger.json", "web_services_ielectric v2"));
 
             app.UseHttpsRedirection();
 
