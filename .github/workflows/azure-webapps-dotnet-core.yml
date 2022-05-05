@@ -63,9 +63,10 @@ jobs:
           path: ${{env.DOTNET_ROOT}}/myapp
       - name: Test  
         run: dotnet test --no-build --verbosity normal
+
   continuos-delivery:
     runs-on: ubuntu-latest
-    needs: build
+    needs: continuos-integration
     environment:
       name: 'Development'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
@@ -89,7 +90,7 @@ jobs:
 
   continuos-deployment:
     runs-on: ubuntu-latest
-    needs: build
+    needs: continuos-integration
     environment:
       name: 'Development'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
