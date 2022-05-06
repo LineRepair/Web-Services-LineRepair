@@ -79,8 +79,6 @@ jobs:
           name: .net-app
       - name: checkout
         uses: actions/checkout@v3
-      - name: Test
-        run: dotnet test --verbosity normal
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
