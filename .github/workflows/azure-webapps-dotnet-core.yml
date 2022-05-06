@@ -79,6 +79,8 @@ jobs:
           name: .net-app
       - name: checkout
         uses: actions/checkout@v3
+      - name: Test
+        run: dotnet test --verbosity normal
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -86,8 +88,7 @@ jobs:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-      - name: Test
-        run: dotnet test --verbosity normal
+      
 
   continuos-deployment:
     runs-on: ubuntu-latest
