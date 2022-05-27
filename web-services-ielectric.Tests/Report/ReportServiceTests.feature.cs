@@ -114,7 +114,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
  testRunner.Given("The Endpoint https://localhost:44346/api/v1/reports is available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                             "Observation",
                             "Diagnosis",
                             "RepairDescription",
@@ -122,7 +122,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "Date",
                             "TechnicianId",
                             "AppointmentId"});
-                table7.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "The microwave smell bad",
                             "A component is burned",
                             "I replaced the microchip successfully",
@@ -131,7 +131,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "2",
                             "1"});
 #line 9
- testRunner.When("A Client Request is sent to the API", ((string)(null)), table7, "When ");
+ testRunner.When("A Client Request is sent to the API", ((string)(null)), table10, "When ");
 #line hidden
 #line 12
  testRunner.Then("A Response with Status 200 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
