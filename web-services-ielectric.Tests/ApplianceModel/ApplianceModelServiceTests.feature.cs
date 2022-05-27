@@ -41,7 +41,7 @@ namespace web_services_ielectric.Tests.ApplianceModel
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ApplianceModel", "ApplianceModelServiceTests", "\tAs a Developer\r\n\tI want to add new ApplianceModel through API\r\n\tso that it becom" +
-                    "es avaliable for applications.", ProgrammingLanguage.CSharp, ((string[])(null)));
+                    "es available for applications.", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -76,6 +76,24 @@ namespace web_services_ielectric.Tests.ApplianceModel
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 6
+#line hidden
+#line 7
+     testRunner.Given("the Endpoint https://localhost:44346/api/v1/applianceModel is available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "ImgPath"});
+            table4.AddRow(new string[] {
+                        "Samsung",
+                        "img1"});
+#line 8
+     testRunner.And("A ApplianceBrand is already stored", ((string)(null)), table4, "And ");
+#line hidden
+        }
+        
         void System.IDisposable.Dispose()
         {
             this.TestTearDown();
@@ -91,7 +109,7 @@ namespace web_services_ielectric.Tests.ApplianceModel
                     "applianceModel.adding"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add ApplianceModel", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 7
+#line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -111,26 +129,99 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 8
- testRunner.Given("The Endpoint https://localhost:44346/api/v1/applianceModel is available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 6
+this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Model",
                             "ImgPath",
                             "PurchaseDate",
                             "ApplianceBrandId"});
-                table4.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "T-800",
                             "1.0.1",
                             "img1.jpg",
                             "23/12/20",
                             "2"});
-#line 9
- testRunner.When("A ApplianceModel Request is sent", ((string)(null)), table4, "When ");
+#line 14
+ testRunner.When("A Post Request is sent to ApplianceModel", ((string)(null)), table5, "When ");
 #line hidden
-#line 12
- testRunner.Then("A Response with Status 200 is received for the applianceModel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 17
+ testRunner.Then("A Response with Status 200 is received in ApplianceModel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Name",
+                            "Model",
+                            "ImgPath",
+                            "PurchaseDate",
+                            "ApplianceBrandId"});
+                table6.AddRow(new string[] {
+                            "T-800",
+                            "1.0.1",
+                            "img1.jpg",
+                            "23/12/20",
+                            "2"});
+#line 18
+ testRunner.And("A applianceModel Resource is included in Response Body", ((string)(null)), table6, "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Add ApplianceModel with Invalid ApplianceBrand")]
+        [Xunit.TraitAttribute("FeatureTitle", "ApplianceModelServiceTests")]
+        [Xunit.TraitAttribute("Description", "Add ApplianceModel with Invalid ApplianceBrand")]
+        [Xunit.TraitAttribute("Category", "applianceModel-adding-Invalid")]
+        public virtual void AddApplianceModelWithInvalidApplianceBrand()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "applianceModel-adding-Invalid"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add ApplianceModel with Invalid ApplianceBrand", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 23
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Name",
+                            "Model",
+                            "ImgPath",
+                            "PurchaseDate",
+                            "ApplianceBrandId"});
+                table7.AddRow(new string[] {
+                            "T-800",
+                            "1.0.1",
+                            "img1.jpg",
+                            "23/12/20",
+                            "-2"});
+#line 24
+ testRunner.When("A Post Request is sent to ApplianceModel", ((string)(null)), table7, "When ");
+#line hidden
+#line 27
+    testRunner.Then("A Response with Status 400 is received in ApplianceModel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 28
+    testRunner.And("A message of \"Invalid ApplianceBrand\" is included in Response Body", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

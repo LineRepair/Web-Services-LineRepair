@@ -35,12 +35,25 @@
     <Compile Update="Administrator\AdministratorServiceTests.feature.cs">
       <DependentUpon>AdministratorServiceTests.feature</DependentUpon>
     </Compile>
+    <Compile Remove="Appointment\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Plan\PlanServiceTests.feature.cs">
       <DependentUpon>PlanServiceTests.feature</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <SpecFlowFeatureFiles Remove="Appointment\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Appointment\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Appointment\**" />
   </ItemGroup>
 
 </Project>

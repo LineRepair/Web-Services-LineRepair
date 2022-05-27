@@ -114,14 +114,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
  testRunner.Given("The Endpoint https://localhost:44346/api/v1/plans is available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Price"});
-                table6.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "New Plan",
                             "20"});
 #line 9
- testRunner.When("A Plan Request is sent", ((string)(null)), table6, "When ");
+ testRunner.When("A Plan Request is sent", ((string)(null)), table9, "When ");
 #line hidden
 #line 12
  testRunner.Then("A Response with Status 200 is received for the plan", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
