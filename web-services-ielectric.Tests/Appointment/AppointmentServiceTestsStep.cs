@@ -1,6 +1,6 @@
 ﻿namespace web_services_ielectric.Tests.Appointment
 {
-    public class AppointmentServiceTest
+    public class AppointmentServiceTestsStep
     {
         
     }

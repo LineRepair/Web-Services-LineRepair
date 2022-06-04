@@ -56,4 +56,16 @@
     <None Remove="Appointment\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Appointment\AppointmentServiceTests.feature" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckBuild Remove="Appointment\AppointmentServiceTests.feature.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <CustomAdditionalCompileInputs Remove="Appointment\AppointmentServiceTests.feature.cs" />
+  </ItemGroup>
+
 </Project>

@@ -48,8 +48,24 @@ namespace web_services_ielectric.Tests.Report
             var existingTechnician = JsonConvert.DeserializeObject<TechnicianResource>(technicianResponseData);
             Technician = existingTechnician;
         }
-
-
+        [When(@"A Technician Request is create to Report")]
+        public void WhenATechnicianRequestIsCreateToReport(Table saveReportResource)
+        {
+            var resource = saveReportResource.CreateSet<SaveReportResource>().First();
+            var content = new StringContent(resource.ToJson(), Encoding.UTF8, "application/json");
+            Response = _client.PostAsync(_baseUri, content);
+        }
+        [Then(@"A Appointment Resource is included in Response Body")]
+        public async void ThenAAppointmentResourceIsIncludedInResponseBody(Table expectedAppointmentResource)
+        {
+            var expectedResource = expectedAppointmentResource.CreateSet<AppointmentResource>().First();
+            var responseData = await Response.Result.Content.ReadAsStringAsync();
+            var resource = JsonConvert.DeserializeObject<AppointmentResource>(responseData);
+            expectedResource.Id = resource.Id;
+            var jsonExpectedResource = expectedResource.ToJson();
+            var jsonActualResource = resource.ToJson();
+            Assert.Equal(jsonExpectedResource, jsonActualResource);
+        }
         [When(@"A Post Request is sent to Report")]
         public void WhenAPostRequestIsSentToReport(Table saveReportResource)
         {
@@ -63,7 +79,7 @@ namespace web_services_ielectric.Tests.Report
         {
             var expectedStatusCode = ((HttpStatusCode)expectedStatus).ToString();
             var actualStatusCode = Response.Result.StatusCode.ToString();
-            Assert.Equal(expectedStatusCode,actualStatusCode);
+           Assert.Equal(expectedStatusCode,actualStatusCode);
            
         }
         [Then(@"A Report Resource is included in Response Body")]
@@ -75,7 +91,7 @@ namespace web_services_ielectric.Tests.Report
             expectedResource.Id = resource.Id;
             var jsonExpectedResource = expectedResource.ToJson();
             var jsonActualResource = resource.ToJson();
-            Assert.Equal(jsonExpectedResource, jsonActualResource);
+           Assert.Equal(jsonExpectedResource, jsonActualResource);
         }
 
         [Then(@"A message of (.*) is included in Response Body")]
